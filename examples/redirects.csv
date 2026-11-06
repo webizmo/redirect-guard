@@ -1,0 +1,15 @@
+from,to,status
+/old-about,/about,301
+/old-contact,/contact,308
+/archive,/archive-2025,301
+/archive-2025,/blog,301
+/loop-a,/loop-b,301
+/loop-b,/loop-a,302
+/same,/same,301
+/duplicate,/destination,301
+/duplicate,/destination,301
+/sale,/summer-sale,302
+/sale,/offers,301
+/external,https://example.com/new-page,302
+/search,/results?q=website,302
+/bad-status,/destination,200

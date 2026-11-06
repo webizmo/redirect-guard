@@ -1,0 +1,20 @@
+{
+  "name": "@webizmo/redirect-guard",
+  "version": "0.1.0",
+  "description": "Find loops, conflicts and unnecessary hops in redirect CSV files. Local browser app and CLI.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Webizmo (https://webizmo.tr)",
+  "repository": { "type": "git", "url": "git+https://github.com/webizmo/redirect-guard.git" },
+  "homepage": "https://webizmo.github.io/redirect-guard/",
+  "bugs": "https://github.com/webizmo/redirect-guard/issues",
+  "engines": { "node": ">=22" },
+  "bin": { "redirect-guard": "bin/cli.js" },
+  "exports": "./src/core.js",
+  "files": ["src/core.js", "bin/cli.js", "README.md", "LICENSE", "examples"],
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}

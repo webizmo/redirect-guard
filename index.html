@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Check a redirect CSV for loops, conflicting rules, and unnecessary hops. A free, open-source tool by Webizmo. Your file stays in your browser." />
+    <meta name="theme-color" content="#197336" />
+    <title>Redirect Guard — check your redirect map</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23197336'/%3E%3Cpath d='M15 43V21h30m-9-9 10 9-10 9' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#redirect-input">Skip to redirect map</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Redirect Guard home">Redirect Guard</a>
+      <nav aria-label="Main navigation">
+        <a href="https://github.com/webizmo/redirect-guard#readme">Documentation</a>
+        <a href="https://github.com/webizmo/redirect-guard">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <h1 id="page-title">Catch redirect mistakes.<br />Before they ship.</h1>
+        <p class="lead">Find loops, conflicting rules, and unnecessary hops in your redirect map.</p>
+        <p class="privacy">Your file stays in your browser.</p>
+      </section>
+      <div class="workspace">
+        <section class="panel input-panel" aria-labelledby="map-title">
+          <div class="panel-heading">
+            <h2 id="map-title">Redirect map</h2>
+            <div class="input-actions">
+              <button id="load-example" type="button">Load example</button>
+              <button id="import-csv" type="button">Import CSV</button>
+              <input id="file-input" type="file" accept=".csv,text/csv,text/plain" hidden />
+            </div>
+          </div>
+          <label for="redirect-input" class="visually-hidden">Redirect map CSV</label>
+          <textarea id="redirect-input" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="input-help input-feedback" placeholder="from,to,status&#10;/old,/new,301"></textarea>
+          <p class="input-help" id="input-help">CSV columns: from, to, status (optional).</p>
+          <p class="input-feedback" id="input-feedback" role="status" hidden></p>
+          <button id="analyze" class="primary-button" type="button">Analyze redirects</button>
+        </section>
+        <section class="panel analysis-panel" aria-labelledby="analysis-title" aria-busy="false">
+          <div class="panel-heading">
+            <h2 id="analysis-title">Analysis</h2>
+            <div class="export-controls">
+              <label for="report-format" class="visually-hidden">Report format</label>
+              <select id="report-format">
+                <option value="json">JSON</option>
+                <option value="md">Markdown</option>
+                <option value="csv">CSV</option>
+              </select>
+              <button id="download-report" type="button">Download report</button>
+            </div>
+          </div>
+          <div class="summary" aria-label="Analysis summary">
+            <span id="rule-count">0 rules</span>
+            <span id="error-count" class="error-count">0 errors</span>
+            <span id="warning-count" class="warning-count">0 warnings</span>
+          </div>
+          <p class="pending-note" id="pending-note" role="status" hidden>Map edited. Analyze again to refresh the report.</p>
+          <div class="filters" role="group" aria-label="Filter issues">
+            <button type="button" data-filter="all" aria-pressed="true">All issues</button>
+            <button type="button" data-filter="error" aria-pressed="false">Errors</button>
+            <button type="button" data-filter="warning" aria-pressed="false">Warnings</button>
+          </div>
+          <ul class="issue-list" id="issue-list" aria-label="Redirect issues"></ul>
+          <p class="result-note" id="result-note" hidden></p>
+          <p class="scope-note">Exact paths only. No crawling or server changes.</p>
+          <p class="visually-hidden" id="announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <span>Open source. <a href="https://github.com/webizmo/redirect-guard/blob/main/LICENSE">MIT licensed.</a></span>
+      <a href="https://webizmo.tr/?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=redirect_guard&amp;utm_content=app">Built by Webizmo <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
+    </footer>
+    <noscript><p class="noscript">Redirect Guard needs JavaScript to analyze files locally in your browser.</p></noscript>
+  </body>
+</html>
